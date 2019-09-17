@@ -3,11 +3,9 @@ pipeline {
   stages {
     stage('Upload to AWS') {
       steps {
-        withAWS(region:'us-west-2'){
+        withAWS(region:'us-west-2',credentials:'aws-static'){
+          s3Upload(file:'index.html', bucket:'zhan430website', path:'/')
         }
-        withAWS(credentials:'AKIAVWA5WUEKU5F3CDCR'){
-        }
-        s3Upload(file:'index.html', bucket:'zhan430website', path:'/')
       }
     }
   }
