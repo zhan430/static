@@ -5,7 +5,7 @@ pipeline {
       steps {
         withAWS(region:'us-west-2'){
         }
-        withAWS(credentials:'jenkins'){
+        withAWS(credentials:'aws-static'){
         }
         s3Upload(file:'index.html', bucket:'zhan430website', path:'zhan430/static/index.html')
       }
